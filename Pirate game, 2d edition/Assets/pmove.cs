@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pmove : MonoBehaviour
 {
-    public float movespeed = 0.4f;
+    public float moveSpeed = 3;
     private Rigidbody2D rb;
     private Vector2 movement;
     // Start is called before the first frame update
@@ -14,10 +14,10 @@ public class pmove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        movement.x = Input.GetAxis("Horizontal") * movespeed;
-        movement.y = Input.GetAxis("Vertical") * movespeed;
-        rb.AddForce(movement);
+        movement.x = Input.GetAxis("Horizontal") * moveSpeed;
+        movement.y = Input.GetAxis("Vertical") * moveSpeed;
+        rb.AddForce(movement, ForceMode2D.Impulse);
     }
 }
