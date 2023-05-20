@@ -14,7 +14,7 @@ public class BasicMovement : MonoBehaviour
     private bool turning;
     Vector2 direction = new Vector2(0f,0f);
     Vector2 int_Direction = new Vector2(0f,0f);
-    float int_mass ;
+    public Transform freePoint ;
     public Transform pivot;
     public Transform anchor;
 
@@ -25,7 +25,6 @@ public class BasicMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         int_Direction = (anchor.position - pivot.position).normalized;
         direction = int_Direction;
-        int_mass = rb.mass;
     }
 
     // Update is called once per frame
@@ -69,6 +68,10 @@ public class BasicMovement : MonoBehaviour
                 {
                     moveSpeed = 0f;
                 }
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            transform.position = freePoint.position;
         }
     }
 
