@@ -19,7 +19,7 @@ public class Islandtrigger : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Z))
             {
-                SceneManager.LoadScene("Island 1");
+                SceneManager.LoadScene(transform.name);
             }
         }
     }

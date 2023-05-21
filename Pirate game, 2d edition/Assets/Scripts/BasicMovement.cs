@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
 {
-    public float moveSpeed = 0;
-    /*public float maxSpeed = 10f;
-    public float rotateForce = 0.1f;
-    private Quaternion rotation;*/
+    public static float moveSpeed = 0;
+    
     public float offset = 0f;
-    public float maxSpeed = 5f;
+    public  float maxSpeed = 5f;
     private Rigidbody2D rb;
     private bool turning;
     Vector2 direction = new Vector2(0f,0f);

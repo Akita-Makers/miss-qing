@@ -27,27 +27,37 @@ public class boatmaker : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(!ship)
+    { /*Vector2.Angle(transform.up, target.transform.position - transform.position))*/
+        if(ship == null)
         {
-            ship = (GameObject)Instantiate(prefab, gameObject.transform.GetChild(1).transform.position ,Quaternion.identity);
+            ship = (GameObject)Instantiate(prefab, transform.Find("Respawn").transform.position ,Quaternion.identity);
             dir = (target.transform.position - ship.transform.position).normalized;
+            //ship.transform.Find("Sprite").transform.rotation = Quaternion.LookRotation(new Vector3(dir.x, -dir.y, 0), Vector2.up);
             Debug.Log("wat");
         }
-        while(ship){
-            ship.transform.Translate(dir * 0.9f * Time.deltaTime);
-            if(Vector2.Distance(ship.transform.position, target.transform.position) < 5f)
-            {
-                ship = null;
-                target = get_Target(islands);
-                /*Insert fadeout*/
-            }
+        Vector3 velocity = dir * 4f * Time.deltaTime;
+        ship.transform.position += velocity;
+        ship.transform.rotation = Quaternion.Euler(0f,0f, -Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg);
+        float afstand = Vector2.Distance(ship.transform.position, target.transform.position);
+        if( afstand < 10f )
+        {
+            Destroy(ship);
+            target = get_Target(islands);
+            /*Insert fadeout*/
         }
     }
 
     private GameObject get_Target(GameObject[] list)
     {
-        return (list[Random.Range(0, islands.Length)]);
+        GameObject target = list[Random.Range(0, islands.Length)];
+        if(target == null)
+        {
+            while(target == null)
+            {
+                target = list[Random.Range(0, islands.Length)];
+            }
+        }
+        return target;
     }
 
     private void spawnBoat(GameObject target)
