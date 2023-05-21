@@ -17,7 +17,7 @@ public class Islandtrigger : MonoBehaviour
     {
         if(closeToAnIsland)
         {
-            if(Input.GetKeyDown(KeyCode.Z))
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 SceneManager.LoadScene(transform.name);
             }
