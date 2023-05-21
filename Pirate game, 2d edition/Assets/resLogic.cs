@@ -17,7 +17,7 @@ public class resLogic : MonoBehaviour
     void Update()
     {
         closest = findResPoint();
-        if(hp.player_hp == 0 || Vector2.Distance(player.transform.position, closest.transform.position) > 50f)
+        if(hp.player_hp == 0 || Vector2.Distance(player.transform.position, closest.transform.position) > 40f)
         {
             Respawn(closest);
         }
@@ -55,11 +55,7 @@ public class resLogic : MonoBehaviour
         hp.player_hp = 100;
 
     }
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(GameObject.FindGameObjectWithTag("Player").transform.position, closest.transform.position);
-    }
+
 }
 
 
