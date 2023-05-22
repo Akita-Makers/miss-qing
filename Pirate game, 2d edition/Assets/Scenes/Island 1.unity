@@ -461,9 +461,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lines:
-  - Name: bloop
-    Speech: 'what the heck are you doing here, sir? '
-  - Name: dddddd
+  - Name: Fresco
+    Speech: 'what the heck are you doing here, Sir? '
+  - Name: Fresco
     Speech: I thought it was Sunday! There's no mail on Sunday!!
 --- !u!1 &1145275256
 GameObject:

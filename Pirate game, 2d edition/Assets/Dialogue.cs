@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
-    public List<Line> Lines;
+    public List<Line> Lines = new();
     private DialogueManager dialogueManager;
 
     [System.Serializable]
@@ -23,5 +23,6 @@ public class Dialogue : MonoBehaviour
     private void Awake()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
+        Debug.Log(dialogueManager);
     }
 }
